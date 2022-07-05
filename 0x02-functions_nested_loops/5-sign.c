@@ -1,28 +1,28 @@
 #include "main.h"
-
 /**
- * print_sign - writes the character c to stdout
- * @c: The character to print
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * print_sign - function
+ *
+ * @n: The character to evaluate
+ *
+ * Return: Get 1 if c is positive,
+ * get 0 if it's 0, and
+ * get -1 otherwise
  */
-int print_sign(int c)
+int print_sign(int n)
 {
-int i;
-
-if (c > 0)
-{
-i = 1;
-_putchar('+');
+	if (n > 0)
+	{
+		_putchar('+');
+		return (1);
+	}
+	else if (n == 0)
+	{
+		_putchar('0');
+		return (0);
+	}
+	else
+	{
+		_putchar('-');
+		return (-1);
+	}
 }
-if (c == 0)
-{
-i = 0;
-_putchar('0');
-}
-if (c < 0)
-{
-i = -1;
-_putchar('-');
-}
-return
