@@ -1,33 +1,23 @@
-include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include "main.h"
 /**
- * create_array - function to create an array and check if the array is empty
- * @c: element of the array
- * @size: parameter with size of array
- * Return: A pointer to the array
- */
-char *create_array(unsigned int size, char c)
+ * _strdup - function pointing to new copied memory allocation
+ * @str: string to be copied
+ * Return: pointer to new memory location, Null otherwise
+ **/
+char *_strdup(char *str)
 {
-char *p;
-unsigned int i = 0;
+	char *cpy;
+	int len = 0;
+	int i;
 
-p = malloc(sizeof(char) * size);
-if (size == 0)
-{
-return (NULL);
-}
-else if (p == NULL)
-{
-return (NULL);
-}
-else
-{
-while (i < size)
-{
-p[i] = c; /*assign address of char*/
-i++;
-}
-return (p);
-}
+	if (str == NULL)
+		return (NULL);
+	while (str[len])
+		len++;
+	cpy = malloc(sizeof(char) * (++len));
+	if (cpy == NULL)
+		return (NULL);
+	for (i = 0; i < len - 1; i++)
+		cpy[i] = str[i];
+	return (cpy);
 }
