@@ -1,38 +1,25 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
 /**
- * *_strdup - function to allocate space in memory
- * @str: pointer holding str
- * Return: Retrun the value
- */
-
+ * _strdup - function pointing to new copied memory allocation
+ * @str: string to be copied
+ * Return: pointer to new memory location, Null otherwise
+ **/
 char *_strdup(char *str)
 {
-int i = 0, n = 0;
-char *a;
-if (str != NULL)
-{
-while (str[n] != 0)
-{
-n++;
-}
-}
-else
-{
-return (NULL);
-}
-a = malloc(sizeof(char) * (n + 1));
-if (a == NULL)
-{
-return (0);
-}
-else
-{
-while (i <= n)
-{
-a[i] = str[i];
-i++;
+	char *cpy;
+	int len = 0;
+	int i;
+
+	if (str == NULL)
+		return (NULL);
+	while (str[len])
+		len++;
+	cpy = malloc(sizeof(char) * (++len));
+	if (cpy == NULL)
+		return (NULL);
+	for (i = 0; i < len - 1; i++)
+		cpy[i] = str[i];
+	return (cpy);
 }
 return (a);
 }
