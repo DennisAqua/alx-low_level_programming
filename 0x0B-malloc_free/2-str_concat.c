@@ -49,6 +49,21 @@ char *str_concat(char *s1, char *s2)
   return (ptrStr);
 }
 
+  for (i = 0; s1[i] != '\0' ; i++)
+    {
+      ptrStr[i] = s1[i];
+    }
+
+  for (i = 0; s2[i] != '\0' ; i++)
+    {
+      ptrStr[i] = s2[i];
+    }
+
+  ptrStr[i] = '\0';
+
+  return (ptrStr);
+}
+
 	return (concat_str);
 }
 
