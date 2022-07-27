@@ -1,39 +1,53 @@
-#include "holberton.h"
 #include <stdlib.h>
-
 /**
- * str_concat - Concatenates two strings.
- * @s1: The string to be concatenated upon.
- * @s2: The string to be concatenated to s1.
- *
- * Return: If concatenation fails - NULL.
- *         Otherwise - a pointer the newly-allocated space in memory
- *                     containing the concatenated strings.
+ * str_concat - concatenates two strings.
+ * @s1: string 1
+ * @s2: string 2
+ * Description:  concatenates two strings..
+ * Return: pointer to char
  */
 char *str_concat(char *s1, char *s2)
 {
-	char *concat_str;
-	int index, concat_index = 0, len = 0;
+  char *ptrStr;
+  int  i,lenCad = 0;
 
-	if (s1 == NULL)
-		s1 = "";
+  if (s1 ==  NULL && s1 ==  NULL)
+    {
+      ptrStr = "";
+      return (ptrStr);
+    }
 
-	if (s2 == NULL)
-		s2 = "";
+  if (s1 !=  NULL )
+    {
+      for (i = 0; s1[i] != '\0' ; i++)
+	lenCad++;
+    }
 
-	for (index = 0; s1[index] || s2[index]; index++)
-		len++;
+  if (s2 !=  NULL )
+    {
+      for (i = 0; s2[i] != '\0' ; i++)
+	lenCad++;
+    }
 
-	concat_str = malloc(sizeof(char) * len);
+  ptrStr =  malloc((lenCad + 1) * sizeof(char));
 
-	if (concat_str == NULL)
-		return (NULL);
+  if (ptrStr == NULL)
+    return (NULL);
 
-	for (index = 0; s1[index]; index++)
-		concat_str[concat_index++] = s1[index];
+  for (i = 0; s1[i] != '\0' ; i++)
+    {
+      ptrStr[i] = s1[i];
+    }
 
-	for (index = 0; s2[index]; index++)
-		concat_str[concat_index++] = s2[index];
+  for (i = 0; s2[i] != '\0' ; i++)
+    {
+      ptrStr[i] = s2[i];
+    }
+
+  ptrStr[i] = '\0';
+
+  return (ptrStr);
+}
 
 	return (concat_str);
 }
