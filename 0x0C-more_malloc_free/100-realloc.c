@@ -45,14 +45,4 @@ nptr[c] = p[c];
 free(p);
 return (nptr);
 }
-for (c = 0 ; c <= old_size ; c++)
-nptr[c] = p[c];
-}
-else
-{
-for (c = 0 ; c < new_size ; c++)
-nptr[c] = p[c];
-}
-free(p);
-return (nptr);
-}
+
