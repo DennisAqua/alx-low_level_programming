@@ -1,39 +1,34 @@
-#include "holberton.h"
-int _pow(int x, int y);
+/#include "holberton.h"
 
 /**
- * binary_to_uint - converts a binary number to an unsigned int.
- * @b: string of 0 and 1
- * Description: Print elements of a list.
- * Return: unsigned int
+ * binary_to_uint - Converts a binary number to an unsigned int.
+ * @b: A pointer to a string of 0 and 1 chars.
+ *
+ * Return: If b is NULL or contains chars not 0 or 1 - 0.
+ *         Otherwise - the converted number.
  */
-
 unsigned int binary_to_uint(const char *b)
 {
-int i = 0, len = 0;
-unsigned int number = 0;
+	unsigned int num = 0, mult = 1;
+	int len;
 
-if (b == NULL)
-return (0);
+	if (b == '\0')
+		return (0);
 
-for ( ; b[i] != '\0'; i++)
-len++;
+	for (len = 0; b[len];)
+		len++;
 
-for (i = 0 ; b[i] != '\0'; i++)
-{
-if (b[i] == '1')
-number = _pow(2, ((len - 1) - i)) + number;
-else if (b[i] != '0')
-return (0);
+	for (len -= 1; len >= 0; len--)
+	{
+		if (b[len] != '0' && b[len] != '1')
+			return (0);
+
+		num += (b[len] - '0') * mult;
+		mult *= 2;
+	}
+
+	return (num);
 }
-return (number);
-}
-
-/**
- * _pow -  Pows a numbe to the x potence
- * @x: base
- * @y: exponent
- * Return: The value
  */
 int _pow(int x, int y)
 {
